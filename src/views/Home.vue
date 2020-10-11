@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import router from "@/router";
 
 import Button from "@/components/Button.vue";
 
@@ -24,7 +25,7 @@ export default class Home extends Vue {
   };
 
   addCard() {
-    console.log("add card");
+    router.push("/addCard");
   }
   viewCards() {
     console.log("view cards");
