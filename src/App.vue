@@ -2,6 +2,7 @@
   <v-app>
     <Header />
     <v-main>
+      <BackButton />
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -10,10 +11,10 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import Header from "./components/TheHeader.vue";
-import Button from "./components/Button.vue";
+import BackButton from "./components/BackButton.vue";
 
 @Component({
-  components: { Header },
+  components: { Header, BackButton },
 })
 export default class App extends Vue {}
 </script>
