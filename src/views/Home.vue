@@ -1,25 +1,33 @@
 <template>
-  <div>
-    <!-- <QRReader :style="{ width: '50%' }" :onCodeRead="onCodeRead" /> -->
+  <div
+    style="height: 100%"
+    class="d-flex flex-column align-center justify-space-around"
+  >
+    <Button :style="buttonStyle" text="Add Card" :onClick="addCard" />
+    <Button :style="buttonStyle" text="View Cards" :onClick="viewCards" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-// import QRReader from "@/components/qr-reader.vue";
 
-import { QrcodeData } from "@/models/qrCodeData";
+import Button from "@/components/Button.vue";
 
 @Component({
-  // components: { QRReader },
+  components: { Button },
 })
 export default class Home extends Vue {
-  styleObject = {
-    width: "50%",
+  buttonStyle = {
+    height: "10rem",
+    width: "15rem",
+    fontSize: "1.5rem",
   };
 
-  onCodeRead(data: QrcodeData) {
-    console.log("data:", data);
+  addCard() {
+    console.log("add card");
+  }
+  viewCards() {
+    console.log("view cards");
   }
 }
 </script>
