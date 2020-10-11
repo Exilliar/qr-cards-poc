@@ -1,8 +1,11 @@
 <template>
-  <v-container>
+  <div>
+    Scan QR code
     <qrcode-stream @decode="onDecode"></qrcode-stream>
+    <br />
+    Or upload image
     <qrcode-capture @decode="onDecode"></qrcode-capture>
-  </v-container>
+  </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
