@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%" class="d-flex justify-center pt-2">
     <CardInfo style="width: 75%" :card="cardData" />
   </div>
 </template>
@@ -21,16 +21,16 @@ export default class ViewCards extends Vue {
     id: 1,
     title: "Card 1",
     imgurl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+      "https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1458686012306-9N7QFP31LGPADKH2B5WQ/ke17ZwdGBToddI8pDm48kF7eaw33EkacYOryCnWb_0dZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVEbp2JmVQlJTxJVSRYOVShHD4RSaKDI6Oafg7QZpiC7is221bnTVPq-SUAxNEJ31GA/17_-_Johnny_Lawrence_1024x1024.jpg",
     stats: [
       {
         id: 0,
-        name: "Stat 1",
+        name: "Attack",
         value: 3,
       },
       {
         id: 1,
-        name: "Stat 2",
+        name: "Defence",
         value: 4,
       },
       {

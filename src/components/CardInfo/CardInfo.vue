@@ -1,13 +1,26 @@
 <template>
   <v-card>
     <v-card-title>{{ title }}</v-card-title>
-    <v-card-text class="d-flex">
-      <img :src="imgurl" alt="Card image" height="10rem" />
-      <div v-for="stat in stats" :key="stat.id" class="d-flex flex-column">
-        <StatInfo :stat="stat" />
-      </div>
+    <v-card-text>
+      <v-row>
+        <v-col cols="6">
+          <v-img
+            :src="imgurl"
+            :lazy-src="imgurl"
+            max-width="150"
+            max-height="250"
+            alt="Card image"
+            class="pr-1"
+          />
+        </v-col>
+        <v-col cols="6">
+          <div class="d-flex flex-column">
+            <StatInfo v-for="stat in stats" :key="stat.id" :stat="stat" />
+          </div>
+        </v-col>
+      </v-row>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions class="d-flex justify-end">
       <Button text="View" :onClick="viewImage" />
     </v-card-actions>
   </v-card>
