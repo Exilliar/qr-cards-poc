@@ -1,5 +1,8 @@
 <template>
   <v-card outlined elevation="4">
+    <modal name="view-image" height="auto" width="100%" classes="viewImage">
+      <v-img :src="imgurl" max-height="500" max-width="300" />
+    </modal>
     <v-card-title>{{ title }}</v-card-title>
     <v-card-text>
       <v-row>
@@ -39,8 +42,13 @@ import Button from "../Button.vue";
 export default class CardInfo extends Vue {
   @Prop() card!: CardData;
 
+  modalStyle = {
+    display: "flex",
+    justifyContent: "center",
+  };
+
   viewImage() {
-    console.log("view image");
+    this.$modal.show("view-image");
   }
 
   get title() {
@@ -56,3 +64,11 @@ export default class CardInfo extends Vue {
   }
 }
 </script>
+<style>
+.viewImage {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+</style>
