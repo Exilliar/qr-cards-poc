@@ -28,7 +28,7 @@ export default class Home extends Vue {
     router.push("/addCard");
   }
   viewCards() {
-    console.log("view cards");
+    router.push("/viewCards");
   }
 }
 </script>
