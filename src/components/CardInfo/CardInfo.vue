@@ -1,6 +1,6 @@
 <template>
   <v-card outlined elevation="4">
-    <modal name="view-image" height="auto" width="100%" classes="viewImage">
+    <modal :name="modalName" height="auto" width="100%" classes="viewImage">
       <v-img :src="imgurl" max-height="500" max-width="300" />
     </modal>
     <v-card-title>{{ title }}</v-card-title>
@@ -48,7 +48,7 @@ export default class CardInfo extends Vue {
   };
 
   viewImage() {
-    this.$modal.show("view-image");
+    this.$modal.show(this.modalName);
   }
 
   get title() {
@@ -61,6 +61,10 @@ export default class CardInfo extends Vue {
 
   get stats() {
     return this.card.stats;
+  }
+
+  get modalName() {
+    return this.card.id.toString();
   }
 }
 </script>
