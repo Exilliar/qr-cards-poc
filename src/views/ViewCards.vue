@@ -20,60 +20,27 @@ import BackButton from "@/components/BackButton.vue";
 
 import { CardData } from "@/models/CardData";
 
+import Axios from "axios";
+
 @Component({
   components: { CardInfo, BackButton },
 })
 export default class ViewCards extends Vue {
-  mounted() {
-    if (this.$route.params.id) {
-      console.log("add card");
-    } else {
-      console.log("no add card");
-    }
-  }
+  accountid = 1;
+  axios = Axios.create({
+    baseURL: "http://127.0.0.1:8000/account/" + this.accountid.toString(),
+  });
 
-  cardData: CardData[] = [
-    {
-      id: 0,
-      title: "Card 1",
-      imgurl:
-        "https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1458686012306-9N7QFP31LGPADKH2B5WQ/ke17ZwdGBToddI8pDm48kF7eaw33EkacYOryCnWb_0dZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVEbp2JmVQlJTxJVSRYOVShHD4RSaKDI6Oafg7QZpiC7is221bnTVPq-SUAxNEJ31GA/17_-_Johnny_Lawrence_1024x1024.jpg",
-      stats: [
-        {
-          id: 0,
-          name: "Attack",
-          value: "3",
-        },
-        {
-          id: 1,
-          name: "Defence",
-          value: "4",
-        },
-        {
-          id: 2,
-          name: "Stat 3",
-          value: "max",
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: "Card 2",
-      imgurl:
-        "https://assets.pokemon.com/assets/cms2/img/cards/web/SWSH1/SWSH1_EN_138.png",
-      stats: [
-        {
-          id: 0,
-          name: "Attack",
-          value: "4",
-        },
-        {
-          id: 3,
-          name: "Stat 4",
-          value: "above average",
-        },
-      ],
-    },
-  ];
+  cardData: CardData[] = [];
+
+  async mounted() {
+    if (this.$route.params.id) {
+      await this.axios.patch("card/" + this.$route.params.id);
+    }
+
+    this.axios.get("card").then((res) => {
+      this.cardData = res.data;
+    });
+  }
 }
 </script>
