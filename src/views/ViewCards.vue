@@ -35,9 +35,7 @@ export default class ViewCards extends Vue {
 
   async mounted() {
     if (this.$route.params.id) {
-      console.log("add card");
-    } else {
-      console.log("no add card");
+      await this.axios.patch("card/" + this.$route.params.id);
     }
 
     this.axios.get("card").then((res) => {
