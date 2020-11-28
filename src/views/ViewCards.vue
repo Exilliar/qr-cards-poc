@@ -22,13 +22,14 @@ import { CardData } from "@/models/CardData";
 
 import Axios from "axios";
 
+import store from "@/store";
+
 @Component({
   components: { CardInfo, BackButton },
 })
 export default class ViewCards extends Vue {
-  accountid = 1;
   axios = Axios.create({
-    baseURL: "http://127.0.0.1:8000/account/" + this.accountid.toString(),
+    baseURL: "http://127.0.0.1:8000/account/" + store.state.id.toString(),
   });
 
   cardData: CardData[] = [];
