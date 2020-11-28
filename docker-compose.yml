@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  qr-cards-frontend:
+    container_name: qrCardsFrontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "8081:8080"
