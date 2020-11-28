@@ -19,6 +19,11 @@ const routes: Array<RouteConfig> = [
     name: "viewCards",
     component: () => import("@/views/ViewCards.vue"),
   },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/Login.vue"),
+  },
 ];
 
 const router = new VueRouter({
