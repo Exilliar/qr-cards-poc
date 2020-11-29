@@ -29,7 +29,7 @@ import store from "@/store";
 export default class Login extends Vue {
   baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://api.debatedb.com/"
+      ? "https://qr-cards-api.rorywebber.co.uk/"
       : "http://localhost:8000/";
   axios = Axios.create({
     baseURL: this.baseUrl,

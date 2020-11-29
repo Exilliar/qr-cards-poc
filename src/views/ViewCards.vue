@@ -28,8 +28,12 @@ import store from "@/store";
   components: { CardInfo, BackButton },
 })
 export default class ViewCards extends Vue {
+  baseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://qr-cards-api.rorywebber.co.uk/"
+      : "http://localhost:8000/";
   axios = Axios.create({
-    baseURL: "http://127.0.0.1:8000/account/" + store.state.id.toString(),
+    baseURL: this.baseUrl + store.state.id.toString(),
   });
 
   cardData: CardData[] = [];
